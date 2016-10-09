@@ -65,8 +65,9 @@ public class TemperatureSeriesAnalysis {
         if (temperatureSeries.length != 0) {
             double max = temperatureSeries[0];
             for (int i = 1; i < temperatureSeries.length; i++) {
-                if (temperatureSeries[i] > max)
+                if (temperatureSeries[i] > max) {
                     max = temperatureSeries[i];
+                }
             }
             return max;
         } else {
@@ -75,12 +76,14 @@ public class TemperatureSeriesAnalysis {
     }
 
 
+
+
     public double findTempClosestToZero() {
         if (temperatureSeries.length != 0) {
             double closestToZero = temperatureSeries[0];
             for (int i = 1; i < temperatureSeries.length; i++) {
-                if (temperatureSeries[i] > 0 &&
-                        temperatureSeries[i] < closestToZero) {
+                if (temperatureSeries[i] > 0
+                        && temperatureSeries[i] < closestToZero) {
                     closestToZero = temperatureSeries[i];
                 }
             }
@@ -94,8 +97,8 @@ public class TemperatureSeriesAnalysis {
         if (temperatureSeries.length != 0) {
             double closestToValue = temperatureSeries[0];
             for (int i = 1; i < temperatureSeries.length; i++) {
-                if (temperatureSeries[i] < tempValue &&
-                        temperatureSeries[i] > closestToValue) {
+                if (temperatureSeries[i] < tempValue
+                        && temperatureSeries[i] > closestToValue) {
                     closestToValue = temperatureSeries[i];
                 }
             }

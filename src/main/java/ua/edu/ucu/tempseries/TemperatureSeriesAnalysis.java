@@ -24,7 +24,9 @@ public class TemperatureSeriesAnalysis {
                 sum += i;
             }
             return sum / amount;
-        } else throw new IllegalArgumentException();
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
 
 
@@ -37,7 +39,9 @@ public class TemperatureSeriesAnalysis {
             }
             return Math.sqrt((sum) / (temperatureSeries.length - 1));
 
-        } else throw new IllegalArgumentException();
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
 
 
@@ -46,11 +50,14 @@ public class TemperatureSeriesAnalysis {
         if (temperatureSeries.length != 0) {
             double min = temperatureSeries[0];
             for (int i = 1; i < temperatureSeries.length; i++) {
-                if (temperatureSeries[i] < min)
+                if (temperatureSeries[i] < min) {
                     min = temperatureSeries[i];
+                }
             }
             return min;
-        } else throw new IllegalArgumentException();
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
 
     public double max() {
@@ -62,7 +69,9 @@ public class TemperatureSeriesAnalysis {
                     max = temperatureSeries[i];
             }
             return max;
-        } else throw new IllegalArgumentException();
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
 
 
@@ -70,24 +79,30 @@ public class TemperatureSeriesAnalysis {
         if (temperatureSeries.length != 0) {
             double closestToZero = temperatureSeries[0];
             for (int i = 1; i < temperatureSeries.length; i++) {
-                if (temperatureSeries[i] > 0 && temperatureSeries[i] < closestToZero) {
+                if (temperatureSeries[i] > 0 &&
+                        temperatureSeries[i] < closestToZero) {
                     closestToZero = temperatureSeries[i];
                 }
             }
             return closestToZero;
-        } else throw new IllegalArgumentException();
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
 
     public double findTempClosestToValue(double tempValue) {
         if (temperatureSeries.length != 0) {
             double closestToValue = temperatureSeries[0];
             for (int i = 1; i < temperatureSeries.length; i++) {
-                if (temperatureSeries[i] < tempValue && temperatureSeries[i] > closestToValue) {
+                if (temperatureSeries[i] < tempValue &&
+                        temperatureSeries[i] > closestToValue) {
                     closestToValue = temperatureSeries[i];
                 }
             }
             return closestToValue;
-        } else throw new IllegalArgumentException();
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
 
 
@@ -105,8 +120,9 @@ public class TemperatureSeriesAnalysis {
             System.arraycopy(arr, 0, lessArray, 0, pos);
 
             return lessArray;
+        } else {
+            throw new IllegalArgumentException();
         }
-        else throw new IllegalArgumentException();
     }
 
 
@@ -124,15 +140,15 @@ public class TemperatureSeriesAnalysis {
             System.arraycopy(arr, 0, lessArray, 0, pos);
 
             return lessArray;
+        } else {
+            throw new IllegalArgumentException();
         }
-        else throw new IllegalArgumentException();
     }
 
 
     public TempSummaryStatistics summaryStatistics() {
 
-        TempSummaryStatistics result = new TempSummaryStatistics(average(), deviation(), min(), max());
-        return result;
+        return new TempSummaryStatistics(average(), deviation(), min(), max());
     }
 
     public int addTemps(double... temps) {
